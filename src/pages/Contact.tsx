@@ -20,7 +20,7 @@ const Contact: FC = () => {
     setStatus({ type: null, message: '' });
     
     try {
-      const response = await fetch('http://localhost:3004/api/send-email', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,13 +89,13 @@ const Contact: FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-6xl mx-auto px-4 py-20"
+        className="px-4 py-20 mx-auto max-w-6xl"
       >
-        <h1 className="font-syne text-4xl md:text-6xl font-bold mb-8 gradient-text">
+        <h1 className="mb-8 text-4xl font-bold font-syne md:text-6xl gradient-text">
           Get in Touch
         </h1>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid gap-12 md:grid-cols-2">
           {/* Contact Information */}
           <motion.div
             initial="hidden"
@@ -103,7 +103,7 @@ const Contact: FC = () => {
             variants={formAnimation}
             custom={0}
           >
-            <p className="text-lg text-neutral-400 mb-8">
+            <p className="mb-8 text-lg text-neutral-400">
               I'm always interested in hearing about new projects and opportunities.
               Feel free to reach out through any of the following channels.
             </p>
@@ -112,12 +112,12 @@ const Contact: FC = () => {
               <motion.div 
                 variants={formAnimation}
                 custom={1}
-                className="flex items-center p-4 rounded-lg card-gradient border border-neutral-800 group hover:border-violet-500 transition-all duration-300"
+                className="flex items-center p-4 rounded-lg border transition-all duration-300 card-gradient border-neutral-800 group hover:border-violet-500"
               >
-                <Mail className="w-6 h-6 mr-4 gradient-text" />
+                <Mail className="mr-4 w-6 h-6 gradient-text" />
                 <div>
                   <div className="font-medium">Email</div>
-                  <a href="mailto:chayansamanta06@gmail.com" className="text-neutral-400 hover:text-white transition-colors">
+                  <a href="mailto:chayansamanta06@gmail.com" className="transition-colors text-neutral-400 hover:text-white">
                     chayansamanta06@gmail.com
                   </a>
                 </div>
@@ -126,12 +126,12 @@ const Contact: FC = () => {
               <motion.div 
                 variants={formAnimation}
                 custom={2}
-                className="flex items-center p-4 rounded-lg card-gradient border border-neutral-800 group hover:border-violet-500 transition-all duration-300"
+                className="flex items-center p-4 rounded-lg border transition-all duration-300 card-gradient border-neutral-800 group hover:border-violet-500"
               >
-                <Phone className="w-6 h-6 mr-4 gradient-text" />
+                <Phone className="mr-4 w-6 h-6 gradient-text" />
                 <div>
                   <div className="font-medium">Phone</div>
-                  <a href="tel:+919330610***" className="text-neutral-400 hover:text-white transition-colors">
+                  <a href="tel:+919330610***" className="transition-colors text-neutral-400 hover:text-white">
                     +91 93306 10***
                   </a>
                 </div>
@@ -140,9 +140,9 @@ const Contact: FC = () => {
               <motion.div 
                 variants={formAnimation}
                 custom={3}
-                className="flex items-center p-4 rounded-lg card-gradient border border-neutral-800 group hover:border-violet-500 transition-all duration-300"
+                className="flex items-center p-4 rounded-lg border transition-all duration-300 card-gradient border-neutral-800 group hover:border-violet-500"
               >
-                <MapPin className="w-6 h-6 mr-4 gradient-text" />
+                <MapPin className="mr-4 w-6 h-6 gradient-text" />
                 <div>
                   <div className="font-medium">Location</div>
                   <span className="text-neutral-400">
@@ -160,9 +160,9 @@ const Contact: FC = () => {
             variants={formAnimation}
             custom={4}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="contact">
               <motion.div variants={formAnimation} custom={5}>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label htmlFor="name" className="block mb-2 text-sm font-medium">
                   Name
                 </label>
                 <input
@@ -177,7 +177,7 @@ const Contact: FC = () => {
               </motion.div>
 
               <motion.div variants={formAnimation} custom={6}>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium">
                   Email
                 </label>
                 <input
@@ -192,7 +192,7 @@ const Contact: FC = () => {
               </motion.div>
 
               <motion.div variants={formAnimation} custom={7}>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block mb-2 text-sm font-medium">
                   Message
                 </label>
                 <textarea
@@ -246,7 +246,7 @@ const Contact: FC = () => {
                 ) : (
                   <>
                     <span>Send Message</span>
-                    <Send className="w-5 h-5 transform transition-transform group-hover:translate-x-1" />
+                    <Send className="w-5 h-5 transition-transform transform group-hover:translate-x-1" />
                   </>
                 )}
               </motion.button>

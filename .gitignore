@@ -67,18 +67,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Images
-project/images/
-
 # Environment files
 .env
 
-# Ignore all image files
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.webp
-public
-cv 
-Chayan Samanta CV.pdf
